@@ -1,0 +1,226 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    padding: 20px;
+
+    /* NEW LUXURY GRADIENT */
+
+    background:
+    radial-gradient(circle at top left, rgba(0,255,200,0.15), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(0,140,255,0.18), transparent 30%),
+    linear-gradient(135deg, #050816, #0f172a, #111827);
+}
+.background-glow{
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 50%;
+    filter: blur(120px);
+    animation: glowMove 10s infinite alternate ease-in-out;
+}
+
+@keyframes glowMove{
+    from{
+        transform: translate(-100px,-80px);
+    }
+    to{
+        transform: translate(120px,80px);
+    }
+}
+
+.calculator-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.heading{
+    color: white;
+    margin-bottom: 20px;
+    letter-spacing: 6px;
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-shadow: 0 0 20px rgba(255,255,255,0.2);
+}
+
+.calculator{
+    width: 100%;
+    max-width: 420px;
+    backdrop-filter: blur(18px);
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 32px;
+    padding: 25px;
+    box-shadow:
+    0 8px 32px rgba(0,0,0,0.4),
+    inset 0 1px 1px rgba(255,255,255,0.08);
+    transition: 0.4s ease;
+}
+
+.calculator:hover{
+    transform: translateY(-5px);
+}
+
+.display-box{
+    width: 100%;
+    height: 140px;
+    border-radius: 22px;
+    background: rgba(255,255,255,0.06);
+    padding: 20px;
+    margin-bottom: 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.previous-operation{
+    color: rgba(255,255,255,0.5);
+    text-align: right;
+    font-size: 1rem;
+    min-height: 24px;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+#display{
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: white;
+    text-align: right;
+    font-size: 3rem;
+    font-weight: 600;
+    overflow-x: auto;
+    white-space: nowrap;
+    margin-top: 8px;
+}
+
+/* Large numbers auto adjust */
+#display.small-text{
+    font-size: 2.2rem;
+}
+
+#display.smaller-text{
+    font-size: 1.6rem;
+}
+
+.buttons{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 15px;
+}
+
+.btn{
+    height: 72px;
+    border: none;
+    border-radius: 35px;
+    background: rgba(255,255,255,0.08);
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    backdrop-filter: blur(10px);
+    box-shadow:
+    inset 0 1px 1px rgba(255,255,255,0.08),
+    0 4px 10px rgba(0,0,0,0.25);
+}
+
+.btn:hover{
+    transform: scale(1.05);
+    background: rgba(255,255,255,0.14);
+}
+
+.btn:active{
+    transform: scale(0.96);
+}
+
+.operator{
+    background: linear-gradient(135deg,#7c3aed,#9333ea);
+}
+
+.operator:hover{
+    filter: brightness(1.1);
+}
+
+.equal{
+    background: linear-gradient(135deg,#06b6d4,#2563eb);
+}
+
+.equal:hover{
+    filter: brightness(1.1);
+}
+
+.special{
+    background: linear-gradient(135deg,#f43f5e,#fb7185);
+}
+
+.special:hover{
+    filter: brightness(1.1);
+}
+
+.zero{
+    grid-column: span 2;
+}
+
+@media (max-width: 600px){
+
+    .calculator{
+        max-width: 100%;
+        padding: 18px;
+        border-radius: 28px;
+    }
+
+    .heading{
+        font-size: 1.7rem;
+        letter-spacing: 4px;
+    }
+
+    .display-box{
+        height: 120px;
+        padding: 16px;
+    }
+
+    #display{
+        font-size: 2.4rem;
+    }
+
+    .btn{
+        height: 65px;
+        font-size: 1.3rem;
+        border-radius: 18px;
+    }
+}
+
+@media (max-width: 400px){
+
+    .btn{
+        height: 58px;
+        font-size: 1.1rem;
+    }
+
+    #display{
+        font-size: 2rem;
+    }
+
+    .heading{
+        font-size: 1.5rem;
+    }
+}
