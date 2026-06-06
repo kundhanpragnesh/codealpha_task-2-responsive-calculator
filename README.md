@@ -50,6 +50,4 @@ Responsive-Calculator/
 - JavaScript Event Handling
 - DOM Manipulation
 
-## Author
 
-**Sonu**
